@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient} from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
@@ -24,7 +24,7 @@ export interface Movie  {
 @Injectable({
   providedIn: 'root'
 })
-export class CardServiceService {
+export class CardService {
   private apiUrl = 'https://api.themoviedb.org/3/movie/top_rated'
   constructor(private http: HttpClient) {}
 

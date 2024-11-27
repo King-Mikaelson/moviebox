@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { CardDetailsComponent } from '../card-details/card-details.component';
 import { LoadingIndicatorComponent } from '../loading-indicator/loading-indicator.component';
 import { CommonModule } from '@angular/common';
-import { CardServiceService } from './card-service.service';
+import { CardService } from '../../service/card.service';
 
 interface Movie {
   adult: boolean;
@@ -42,7 +42,7 @@ export class CardComponent implements OnInit {
   movies: Movie[] = [];
   error: string | null = null;
 
-  constructor(public cardService: CardServiceService) {}
+  constructor(public cardService: CardService) {}
 
   ngOnInit(): void {
     this.cardService.getMovies().subscribe({
