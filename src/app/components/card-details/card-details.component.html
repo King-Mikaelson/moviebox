@@ -1,0 +1,55 @@
+<div class="card" (click)="navigateToMovie()">
+  <!-- Movie Poster -->
+  <div class="relative w-full">
+    <img
+      [src]="'http://image.tmdb.org/t/p/original' + item.poster_path"
+      alt="movie poster"
+      class="w-full cursor-pointer"
+    />
+    <div
+      (click)="toggleFavourite($event)"
+      class="bg-[rgba(243,244,246,0.5)] py-2 px-2 w-[30px] h-[29.21px] flex justify-center items-center rounded-[24rem] absolute top-3 right-3"
+    >
+      <span *ngIf="isFavourite; else notFavourite">
+        <i class="text-red-700 cursor-pointer text-2xl">♥</i>
+      </span>
+      <ng-template #notFavourite>
+        <i class="text-[#D1D5DB] cursor-pointer text-2xl">♡</i>
+      </ng-template>
+    </div>
+  </div>
+
+  <!-- Release Date -->
+  <p class="py-3 font-DMSans text-xs text-[#9CA3AF] font-bold">
+    {{ item.release_date }}
+  </p>
+
+  <!-- Title -->
+  <div class="flex gap-4 flex-col">
+    <p
+      class="font-DMSans text-lg text-[#111827] font-bold cursor-pointer"
+      (click)="navigateToMovie()"
+    >
+      {{ item.title }}
+    </p>
+
+    <!-- Ratings -->
+    <div class="flex justify-between">
+      <div class="flex items-center gap-2">
+        <img src="imdb.svg" alt="imdb logo" class="w-10" />
+        <p class="font-normal font-DMSans text-xs text-[#111827]">  {{ item.
+          vote_average
+           }} / 10</p>
+      </div>
+      <div class="flex items-center gap-2">
+        <img src="/tomato.svg" alt="tomato logo" class="w-5" />
+        <p class="font-normal font-DMSans text-xs text-[#111827]">97%</p>
+      </div>
+    </div>
+
+    <!-- Genres -->
+    <div class="flex lg:gap-2">
+      {{ getGenres(item.genre_ids) }}
+    </div>
+  </div>
+</div>

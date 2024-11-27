@@ -1,0 +1,33 @@
+<main class=" px-6 xl:px-24  py-20">
+  <div>
+    <div class="flex justify-between items-center">
+      <h2 class="font-DMsans lg:text-4xl text-lg font-bold text-[#000]">
+        Featured Movie
+      </h2>
+      <div class="flex lg:gap-4 gap-2 items-center">
+        <p class="text-[#BE123C] font-DMSans lg:text-lg text-base">See more</p>
+        <img src="/ChevronRight.svg" alt="chevron right" />
+      </div>
+    </div>
+  </div>
+
+
+  <div *ngIf="cardService.isLoading || cardService.isPending; else content">
+    <app-loading-indicator></app-loading-indicator>
+  </div>
+
+  <ng-template #content>
+    <!-- <div class="grid md:grid-cols-2 lg:grid-cols-4 grid-cols-1 gap-12 mt-10 gap-y-23">
+      <ng-container *ngFor="let item of (filteredData.length > 0 ? filteredData : data)?.slice(0, 10); let i = index">
+        <app-card-details [item]="item" [key]="i"></app-card-details>
+      </ng-container>
+    </div> -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 grid-cols-1 gap-12 mt-10 gap-y-23">
+      <ng-container *ngFor="let item of movies; let i = index">
+        <app-card-details [item]="item"></app-card-details>
+      </ng-container>
+    </div>
+
+  </ng-template>
+
+</main>

@@ -1,0 +1,74 @@
+<div class="pt-4 flex flex-col justify-between h-full w-full">
+  <div class="px-6">
+    <img
+      src="https://raw.githubusercontent.com/King-Mikaelson/HNG-SECOND-TASK/42e98324617f8ee65a096cbfe3b10d6907501ac8/public/blackLogo.svg"
+      alt="logo image"
+      class="lg:w-48 w-32 hidden md:block"
+    />
+  </div>
+
+  <div class="grid grid-cols-1 gap-12 w-full mt-12 mb-8">
+    <div
+      [ngClass]="{
+        'flex items-center text-[#BE123C] active__parent bg-[rgba(190,18,60,0.10)] transition duration-500': active === 'home',
+        'text-[#666] transition duration-0': active !== 'home'
+      }"
+      (click)="setActive('home')"
+    >
+      <div class="flex gap-4 items-center lg:px-6 px-0">
+        <img src="/Home.svg" alt="home"/>
+        <p class="font-poppins text-xl font-medium text-[#666] hidden lg:block">Home</p>
+      </div>
+    </div>
+
+    <div
+      [ngClass]="{
+        'flex items-center text-[#BE123C] active__parent bg-[rgba(190,18,60,0.10)] transition duration-500': active === 'movies',
+        'text-[#666] transition duration-0': active !== 'movies'
+      }"
+      (click)="setActive('movies')"
+    >
+      <div class="flex gap-4 items-center lg:px-6 px-0">
+        <img src="/MovieProjector.svg" alt="movies"/>
+        <p class="font-poppins text-xl font-medium hidden lg:block">Movies</p>
+      </div>
+    </div>
+
+    <div
+      [ngClass]="{
+        'flex items-center text-[#BE123C] active__parent bg-[rgba(190,18,60,0.10)] transition duration-500': active === 'series',
+        'text-[#666] transition duration-0': active !== 'series'
+      }"
+      (click)="setActive('series')"
+    >
+      <div class="flex gap-4 items-center lg:px-6 px-0">
+        <img src="https://raw.githubusercontent.com/King-Mikaelson/HNG-SECOND-TASK/42e98324617f8ee65a096cbfe3b10d6907501ac8/public/tvShow.svg" alt="tv show" class="w-8"/>
+        <p class="font-poppins text-xl font-medium whitespace-nowrap hidden lg:block">TV Series</p>
+      </div>
+    </div>
+
+    <div
+      [ngClass]="{
+        'flex items-center text-[#BE123C] active__parent bg-[rgba(190,18,60,0.10)] transition duration-500': active === 'upcoming',
+        'text-[#666] transition duration-0': active !== 'upcoming'
+      }"
+      (click)="setActive('upcoming')"
+    >
+      <div class="flex gap-4 items-center lg:px-6 px-0">
+        <img src="https://raw.githubusercontent.com/King-Mikaelson/HNG-SECOND-TASK/42e98324617f8ee65a096cbfe3b10d6907501ac8/public/calendar.svg" alt="calendar" class="w-8"/>
+        <p class="font-poppins text-xl font-medium hidden lg:block">Upcoming</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="lg:flex flex-col px-3 mx-6 pt-10 pb-4 gap-2 rounded-[1.25rem] border solid border-[rgba(190,18,60,0.70)] bg-[rgba(248,231,235,0.4)] hidden">
+    <p class="font-poppins font-semibold text-[0.9375rem] text-[rgba(51,51,51,0.80)]">Play movie quizes and earn free tickets</p>
+    <p class="font-poppins font-medium text-xs text-[#666]">50k people are playing now</p>
+    <button class="font-poppins flex justify-center items-center mx-auto font-medium text-xs text-[rgba(190,18,60,1)] w-fit h-fit py-2 px-4 rounded-[1.875rem] bg-[rgba(190,18,60,0.2)]">Start Playing</button>
+  </div>
+
+  <div class="flex gap-6 items-center mt-12 pb-6 lg:px-6 px-0">
+    <img src="/Logout.svg" alt='logout'/>
+    <p class="font-poppins font-medium text-xl text-[#666] hidden lg:block">Log out</p>
+  </div>
+</div>

@@ -1,0 +1,114 @@
+<div class="pt-8 px-4">
+  <div class="relative">
+    <img 
+      [ngSrc]="'http://image.tmdb.org/t/p/original' + data.backdrop_path"
+      alt="movie poster"
+      width="500"
+      height="500"
+      class="lg:h-[60vh] h-[30vh] w-full rounded-[1.25rem]"
+      priority
+    />
+    <div class="playDiv cursor-pointer">
+      <div class="rounded-full play py-8 px-8">
+        <i class="fa fa-play text-white text-3xl"></i>
+      </div>
+      <p class="text-[#E8E8E8] text-[1.5625rem] font-poppins font-medium">
+        Watch Trailer
+      </p>
+    </div>
+  </div>
+
+  <div class="grid lg:grid-cols-2 xl:grid-cols-[1fr,350px] 2xl:grid-cols-2 grid-cols-1 mt-10 px-2">
+    <div>
+      <div class="flex gap-8 items-center overflow-auto">
+        <p data-testid="movie-title" class="text-[#404040] whitespace-nowrap md:whitespace-normal lg:text-[1.4375rem] text-base font-poppins">
+          {{ data.title }}
+        </p>
+        <ul class="flex gap-10 list-disc items-center">
+          <li data-testid="movie-release-date" class="text-[#404040] whitespace-nowrap lg:text-[1.4375rem] text-sm font-poppins font-normal">
+            {{ getUtcTime(data.release_date) }}
+          </li>
+          <li class="text-[#404040] whitespace-nowrap lg:text-[1.4375rem] text-sm font-poppins font-normal">
+            PG 13
+          </li>
+          <li data-testid="movie-runtime" class="text-[#404040] whitespace-nowrap lg:text-[1.4375rem] text-sm font-poppins font-normal">
+            {{ data.runtime }}
+          </li>
+        </ul>
+
+        <div class="flex gap-4">
+          <p *ngFor="let item of data.genres?.slice(0, 2)" 
+             class="rounded-[0.9375rem] text-[#B91C1C] border solid border-[#F8E7EB] py-1 px-2 flex whitespace-nowrap items-center lg:text-base text-sm font-poppins font-normal">
+            {{ item.name }}
+          </p>
+        </div>
+      </div>
+
+      <p data-testid="movie-overview" class="py-4 text-[#404040] lg:text-xl text-base font-poppins">
+        {{ data.overview }}
+      </p>
+
+      <div class="flex gap-3 whitespace-nowrap overflow-auto border solid border-[rgba(232,232,232,0.25)] py-4">
+        <h4 class="font-poppins text-xl text-[#333]">Director :</h4>
+        <p *ngFor="let director of getDirectors()" class="font-poppins text-xl text-[#BE123C]">
+          {{ director.name }}
+        </p>
+      </div>
+
+      <div class="flex gap-3 whitespace-nowrap overflow-auto border-b solid border-[rgba(232,232,232,0.25)] py-4">
+        <h4 class="font-poppins text-xl text-[#333]">Writers :</h4>
+        <p *ngFor="let writer of getWriters().slice(0, 4)" class="font-poppins text-xl text-[#BE123C]">
+          {{ writer.name }}
+        </p>
+      </div>
+
+      <div class="flex gap-3 whitespace-nowrap overflow-auto border-b solid border-[rgba(232,232,232,0.25)] py-4">
+        <h4 class="font-poppins text-xl text-[#333]">Stars :</h4>
+        <p *ngFor="let actor of credits?.cast?.slice(0, 4)" class="font-poppins text-xl text-[#BE123C]">
+          {{ actor.name }}
+        </p>
+      </div>
+
+      <div class="flex whitespace-nowrap overflow-auto w-full items-center mt-3 rounded-[0.625rem] border">
+        <p class="bg-[#BE123C] lg:w-[60%] xl:w-[40%] lg:py-3 lg:px-3 text-center border solid border-red-700 rounded-[0.625rem] text-white font-poppins text-xs lg:text-xl font-normal">
+          Top rated movie #65
+        </p>
+        <div class="lg:py-3 lg:px-6 w-full justify-around items-center">
+          <div class="border-[#C7C7C7] text-[#333] font-poppins text-xl font-normal">
+            Awards 9 nominations
+          </div>
+        </div>
+        <i class="fa fa-chevron-down text-2xl mr-5"></i>
+      </div>
+    </div>
+
+    <div>
+      <div class="flex justify-end items-center gap-4">
+        <i class="fa fa-star text-yellow-400 text-3xl"></i>
+        <p class="text-[#333] font-poppins text-xl font-medium">
+          <span class="text-[#E8E8E8] text-2xl">8.5 </span>| 350k
+        </p>
+      </div>
+
+      <div class="bg-[#BE123C] mt-9 mb-3 z-30 py-3 px-3 flex gap-3 justify-center items-center border solid border-red-700 rounded-[0.625rem] text-white font-poppins text-xl font-medium">
+        <img 
+          src="/ticket.svg"
+          alt="ticket icon"
+          class="w-10"
+        />
+        <p>See Showtimes</p>
+      </div>
+
+      <div class="bg-[rgba(190,18,60,0.10)] mb-3 z-30 py-3 px-3 flex justify-center gap-3 border solid border-red-700 rounded-[0.625rem] text-[#333] font-poppins text-xl font-medium items-center">
+        <i class="fa fa-list"></i>
+        More watch options
+      </div>
+
+      <img 
+        src="/movieGroup.svg"
+        alt="movie poster"
+        class="w-full"
+      />
+    </div>
+  </div>
+</div>
